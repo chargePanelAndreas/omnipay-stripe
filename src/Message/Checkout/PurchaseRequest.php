@@ -145,6 +145,28 @@ class PurchaseRequest extends AbstractRequest
         return $this->getParameter('client_reference_id');
     }
 
+    /**
+     * Set the customer_creation parameter
+     *
+     * @param string $value
+     *
+     * @return \Omnipay\Common\Message\AbstractRequest|PurchaseRequest
+     */
+    public function setCustomerCreation($value)
+    {
+        return $this->setParameter('customer_creation', $value);
+    }
+
+    /**
+     * Get the customer_creation parameter
+     *
+     * @return string
+     */
+    public function getCustomerCreation()
+    {
+        return $this->getParameter('customer_creation');
+    }
+
     public function getData()
     {
         $data = array(
@@ -153,9 +175,7 @@ class PurchaseRequest extends AbstractRequest
             'cancel_url' => $this->getCancelUrl(),
             'payment_method_types' => $this->getPaymentMethodTypes(),
             'mode' => $this->getMode(),
-            'customer_creation' => $this->getParameter('customer_creation'),
-            'payment_intent_data' => $this->getParameter('payment_intent_data'),
-            'automatic_payment_methods' => $this->getParameter('automatic_payment_methods'),
+            'customer_creation' => $this->getCustomerCreation(),
             'line_items' => $this->getLineItems()
         );
 

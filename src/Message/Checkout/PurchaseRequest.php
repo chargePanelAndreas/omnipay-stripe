@@ -145,7 +145,6 @@ class PurchaseRequest extends AbstractRequest
         return $this->getParameter('client_reference_id');
     }
 
-
     public function getData()
     {
         $data = array(
@@ -154,6 +153,9 @@ class PurchaseRequest extends AbstractRequest
             'cancel_url' => $this->getCancelUrl(),
             'payment_method_types' => $this->getPaymentMethodTypes(),
             'mode' => $this->getMode(),
+            'customer_creation' => $this->getParameter('customer_creation'),
+            'payment_intent_data' => $this->getParameter('payment_intent_data'),
+            'automatic_payment_methods' => $this->getParameter('automatic_payment_methods'),
             'line_items' => $this->getLineItems()
         );
 

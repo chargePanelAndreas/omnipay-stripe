@@ -51,7 +51,7 @@ class CheckoutGateway extends AbstractGateway
      */
     public function authorize(array $parameters = array())
     {
-        return $this->createRequest('\Omnipay\Stripe\Message\AuthorizeRequest', $parameters);
+        return $this->createRequest('\Omnipay\Stripe\Message\Checkout\AuthorizeRequest', $parameters);
     }
 
     /**

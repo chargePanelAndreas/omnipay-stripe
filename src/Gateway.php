@@ -212,6 +212,20 @@ class Gateway extends AbstractGateway
     }
 
     /**
+     * Update charge request.
+     *
+     * Update the data for a charge after the charge has been created.
+     *
+     * @param array $parameters
+     *
+     * @return \Omnipay\Stripe\Message\Response
+     */
+    public function updateCharge(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Stripe\Message\UpdateChargeRequest', $parameters);
+    }
+
+    /**
      * Update Subscription
      *
      * @param array $parameters

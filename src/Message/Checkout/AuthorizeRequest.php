@@ -18,14 +18,16 @@ class AuthorizeRequest extends PurchaseRequest
     {
         $data = parent::getData();
 
+        $paymentIntentData = $data['payment_intent_data'] ?? [];
+        
         /**
          * @see https://docs.stripe.com/api/checkout/sessions/create#create_checkout_session-payment_intent_data-capture_method
          * 
          * You will use PaymentIntents\CaptureRequest to capture and process a previously created authorization.
          */
-        $data['payment_intent_data'] = [
-            'capture_method' => 'manual'
-        ];
+        $paymentIntentData['capture_method'] =  'manual';
+        
+        $data['payment_intent_data'] = $paymentIntentData;
 
         return $data;
     }

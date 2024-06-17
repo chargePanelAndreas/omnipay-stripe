@@ -351,8 +351,8 @@ class PurchaseRequest extends AbstractRequest
             'customer_creation' => $this->getCustomerCreation(),
             'line_items' => $this->getLineItems()
         );
-        
-        if (!empty($paymentIntentData)) {
+
+        if (!empty($paymentIntentData) && $this->getMode() !== 'setup') {
             $data['payment_intent_data'] = $paymentIntentData;
         }
 

@@ -166,6 +166,16 @@ class PaymentIntentsGateway extends AbstractGateway
         return $this->createRequest('\Omnipay\Stripe\Message\PaymentIntents\DetachPaymentMethodRequest', $parameters);
     }
 
+    /**
+     * Clone a Payment Method to a Connected Stripe account.
+     *
+     * @return \Omnipay\Stripe\Message\PaymentIntents\ClonePaymentMethodRequest
+     */
+    public function clonePaymentMethod(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Stripe\Message\PaymentIntents\ClonePaymentMethodRequest', $parameters);
+    }
+    
     // Setup Intent
 
     /**
